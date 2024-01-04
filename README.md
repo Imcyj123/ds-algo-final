@@ -30,8 +30,8 @@ components = [
     Component("Rectangle", (width, height), amount),
     Component("Triangle", (width, height), amount),
     Component("Triangle", (width, height), amount),
-    Component("Circle", (Radius, Radius), amount), # Radius = radius * 2
-    Component("Circle", (Radius, Radius), amount),
+    Component("Circle", (Diameter, Diameter), amount), # Diameter = radius * 2
+    Component("Circle", (Diameter, Diameter), amount),
 ]
 
 # Run the Greedy Packing Algorithm
