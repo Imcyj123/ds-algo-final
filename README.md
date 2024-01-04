@@ -52,18 +52,20 @@ while sum([i.remaining_quantity for i in components]) != 0:
     # Update counts
     cnt = [x + y for x, y in zip(cnt, cur)]
 
-```python=
-    # Result
-    print(f"Remaining Area%: {remaining_area / area}")
-    remaining_area_array.append(float(remaining_area / area))
-    print(f" each time : {time.time() - each_time}")
-    for i, component in enumerate(components):
-        print(f"{i + 1}. {component.type},{component.dimensions}, {component.quantity}, remaining: {component.remaining_quantity}, total_count: {cnt[i]}, count: {cur[i]}")
 ```
 
-```python=
+```python
+# Result
+print(f"Remaining Area%: {remaining_area / area}")
+remaining_area_array.append(float(remaining_area / area))
+print(f" each time : {time.time() - each_time}")
+for i, component in enumerate(components):
+	print(f"{i + 1}. {component.type},{component.dimensions}, {component.quantity}, remaining: {component.remaining_quantity}, total_count: {cnt[i]}, count: {cur[i]}")
+```
+
+```python
+# Output
 print(f' total use time {time.time()-start}')
 print(f' use leather {used} pieces')
 print(f' remaining_area {remaining_area_array}')
-
 ```
