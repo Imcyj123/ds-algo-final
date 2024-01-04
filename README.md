@@ -38,15 +38,32 @@ components = [
 remaining_area_array = []
 used = 0
 while sum([i.remaining_quantity for i in components]) != 0:
-    # ...
+    cur = [0 for _ in components]
+    each_time = time.time()
+    used += 1
+    material_width = 200
+    material_height = 200
+    area = material_width * material_height
 
     # Algorithm Execution
     packed_items, remaining_area = pack_components(material_width, material_height, components)
     plot_packing(material_width, material_height, packed_items)
 
-    # ...
-
     # Update counts
     cnt = [x + y for x, y in zip(cnt, cur)]
 
-    # ...
+```python=
+    # Result
+    print(f"Remaining Area%: {remaining_area / area}")
+    remaining_area_array.append(float(remaining_area / area))
+    print(f" each time : {time.time() - each_time}")
+    for i, component in enumerate(components):
+        print(f"{i + 1}. {component.type},{component.dimensions}, {component.quantity}, remaining: {component.remaining_quantity}, total_count: {cnt[i]}, count: {cur[i]}")
+```
+
+```python=
+print(f' total use time {time.time()-start}')
+print(f' use leather {used} pieces')
+print(f' remaining_area {remaining_area_array}')
+
+```
