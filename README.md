@@ -25,13 +25,13 @@ To demonstrate the modified algorithm, a set of example components is provided i
 ```python
 # Example Components
 components = [
-    Component("Rectangle", (20, 50), 10),
-    Component("Rectangle", (20, 15), 20),
-    Component("Rectangle", (15, 15), 10),
-    Component("Triangle", (10, 10), 20),
-    Component("Triangle", (15, 15), 15),
-    Component("Circle", (10, 10), 15),
-    Component("Circle", (20, 20), 40),
+    Component("Rectangle", (width, height), amount),
+    Component("Rectangle", (width, height), amount),
+    Component("Rectangle", (width, height), amount),
+    Component("Triangle", (width, height), amount),
+    Component("Triangle", (width, height), amount),
+    Component("Circle", (Radius, Radius), amount), # Radius = radius * 2
+    Component("Circle", (Radius, radius), amount),
 ]
 
 # Run the Greedy Packing Algorithm
