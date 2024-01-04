@@ -1,66 +1,52 @@
-class Component:
-    type
-    dimensions
-    quantity
-    remaining_quantity
+# Greedy Packing Algorithm with Square for Equilateral Triangles
 
-function pack_components(material_width, material_height, components, max_iterations=1000):
-    packed_items = []
-    used_area = 0
-    sort components by area in descending order
-    initialize material_grid with zeros
+This repository presents a packing algorithm that employs a greedy approach to place components into a given material space. Notably, the algorithm utilizes squares to pack equilateral triangles efficiently.
 
-    repeat max_iterations times:
-        all_placed = true
-        for each component in components:
-            placed_quantity = 0
-            for row in material_height:
-                for col in material_width:
-                    if try_place_component(material_grid, row, col, component):
-                        update packed_items, remaining_quantity, used_area
-                        set all_placed to false
+## Overview
 
-        remaining_area = calculate remaining area
-        if remaining_area <= 0 or all_placed:
-            break
+The modified algorithm prioritizes the use of squares to pack equilateral triangles, aiming for better space utilization. The components are sorted in descending order based on their dimensions, and the algorithm iteratively attempts to place them in the material space.
 
-    return packed_items, remaining_area
+## Components
 
-function try_place_component(material_grid, row, col, component):
-    if placement is outside material boundaries:
-        return false
+The `Component` class still represents different types of components, including rectangles, circles, and triangles. However, for equilateral triangles, the algorithm uses squares for packing.
 
-    for each cell in component:
-        if cell is already occupied:
-            return false
+## Greedy Packing
 
-    mark cells as occupied
-    return true
+The `pack_components` function has been updated to handle the modified approach. It now considers the specific handling of equilateral triangles using squares for packing. The algorithm prioritizes placing larger components first.
 
-function plot_packing(material_width, material_height, packed_items):
-    create plot
-    set plot limits
-    for each item in packed_items:
-        create shape based on component type and dimensions
-        add shape to plot
-    display plot
+## Visualization
 
-components = [list of Component objects]
+The `plot_packing` function remains responsible for visualizing the packing result using matplotlib. It creates a plot with rectangles, circles, and squares representing the components in their respective positions.
 
-remaining_area_arr = empty list
+## Usage
+
+To demonstrate the modified algorithm, a set of example components is provided in the `components` list. The algorithm is run multiple times, and the packing result is visualized each time.
+
+```python
+# Example Components
+components = [
+    Component("Rectangle", (20, 50), 10),
+    Component("Rectangle", (20, 15), 20),
+    Component("Rectangle", (15, 15), 10),
+    Component("Triangle", (10, 10), 20),
+    Component("Triangle", (15, 15), 15),
+    Component("Circle", (10, 10), 15),
+    Component("Circle", (20, 20), 40),
+]
+
+# Run the Greedy Packing Algorithm
+remaining_area_array = []
 used = 0
+while sum([i.remaining_quantity for i in components]) != 0:
+    # ...
 
-while sum of remaining quantities in components is not zero:
-    set material_width and material_height
-    calculate total area
+    # Algorithm Execution
+    packed_items, remaining_area = pack_components(material_width, material_height, components)
+    plot_packing(material_width, material_height, packed_items)
 
-    perform packing
-    plot packing result
-    update remaining_area_arr
-    print remaining area percentage and time taken for each iteration
+    # ...
 
-    for each component in components:
-        print component details
+    # Update counts
+    cnt = [x + y for x, y in zip(cnt, cur)]
 
-print total time taken and number of leather pieces used
-print remaining_area_arr
+    # ...
