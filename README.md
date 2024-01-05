@@ -73,6 +73,32 @@ print(f' remaining_area {remaining_area_array}')
 ```
 
 
+# Flowchart
+```mermaid
+graph TD;
+
+    subgraph Initialization
+        Start --> Initialize
+        Initialize --> SetMaterialSizeAndComponentList
+    end
+    
+    subgraph MainLoop
+        SetMaterialSizeAndComponentList --> MainLoopIteration
+    end
+    
+    subgraph IterativePlacement
+        MainLoopIteration --> InitializeUsedVariables
+        InitializeUsedVariables --> LoopUntilConditionMet
+        LoopUntilConditionMet --> RecordEachIterationTime
+        RecordEachIterationTime --> RunPackComponents
+        RunPackComponents --> DisplayPlacementResults
+        DisplayPlacementResults --> ShowDetailsOfEachComponent
+        ShowDetailsOfEachComponent --> UpdateCountersAndComponentProperties
+        UpdateCountersAndComponentProperties --> DisplayTotalTime
+        DisplayTotalTime --> DisplayNumberOfLeatherBlocksUsed
+    end
+```
+
 <footer>
     <p>&copy; 2024 ChenYongJin and ChenPinHan. All rights reserved.</p>
 </footer>
