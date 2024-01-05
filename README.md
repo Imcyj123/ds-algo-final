@@ -70,6 +70,8 @@ print(f' total use time {time.time()-start}')
 print(f' use leather {used} pieces')
 print(f' remaining_area {remaining_area_array}')
 
+```
+
 
 <footer>
     <p>&copy; 2024 ChenYongJin and ChenPinHan. All rights reserved.</p>
