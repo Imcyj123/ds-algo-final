@@ -1,15 +1,15 @@
 # Class to represent different components
-class Component:
-    function Component(type, dimensions, quantity):
-        self.type = type
-        self.dimensions = dimensions
-        self.quantity = quantity
-        self.remaining_quantity = quantity
+    class Component:
+        function Component(type, dimensions, quantity):
+            self.type = type
+            self.dimensions = dimensions
+            self.quantity = quantity
+            self.remaining_quantity = quantity
 
 # Greedy packing algorithm function
-function pack_components(material_width, material_height, components, max_iterations=1000):
-    packed_items = []
-    used_area = 0
+    function pack_components(material_width, material_height, components, max_iterations=1000):
+        packed_items = []
+        used_area = 0
     
     # Sort components by area in descending order
     sort components by dimensions[0] * dimensions[1] in descending order
@@ -53,8 +53,8 @@ function pack_components(material_width, material_height, components, max_iterat
     return packed_items, remaining_area
 
 # Function to attempt placing a component in the material grid
-function try_place_component(material_grid, row, col, component):
-    height, width = dimensions of material_grid
+    function try_place_component(material_grid, row, col, component):
+        height, width = dimensions of material_grid
     
     # Check if the component exceeds the material grid boundaries
     if row + component.dimensions[0] > height or col + component.dimensions[1] > width:
@@ -74,10 +74,10 @@ function try_place_component(material_grid, row, col, component):
     return true
 
 # Function to visualize the packing result using matplotlib
-function plot_packing(material_width, material_height, packed_items):
-    create figure and axes using matplotlib
-    set x-axis limit to [0, material_width]
-    set y-axis limit to [0, material_height]
+    function plot_packing(material_width, material_height, packed_items):
+        create figure and axes using matplotlib
+        set x-axis limit to [0, material_width]
+        set y-axis limit to [0, material_height]
     
     # Iterate through each packed item and plot the corresponding patch
     for each item in packed_items:
@@ -92,6 +92,7 @@ function plot_packing(material_width, material_height, packed_items):
     # Set aspect ratio of axes to 'equal' and show the plot with a title
 
 # Example components
+```python
 components = [
     Component("Rectangle", (width, height), amount),
     Component("Rectangle", (width, height), amount),
@@ -101,6 +102,7 @@ components = [
     Component("Circle", (Diameter, Diameter), amount),  # Diameter = radius * 2
     Component("Circle", (Diameter, Diameter), amount),
 ]
+```
 
 # Initialize counters and arrays
 initialize cnt array to zeros of the same length as components
@@ -134,6 +136,8 @@ while sum of remaining quantities in components is not 0:
     # Output information about each iteration
 
 # Output total used time, number of leather pieces used, and remaining area array
+```python
 print(f' total use time {time.time()-start}')
 print(f' use leather {used} pieces')
 print(f' remaining_area {remaining_area_array}')
+```
